@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TODOリスト</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="app">
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          TODOリスト
+        </h1>
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+            <input class="input is-primary" type="text" placeholder="TODOを入力してください" v-model="newTodo">
+          </p>
+          <p class="control">
+            <a class="button is-primary" @click="addTodo">追加</a>
+          </p>
+        </div>
+
+        <div class="field is-grouped" v-for="(todo, n) in todos">
+          <p class="control todo">{{todo}}</p>
+          <p class="control">
+            <a class="button is-info is-small" @click="removeTodo(n)">完了！</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
